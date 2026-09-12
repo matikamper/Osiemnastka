@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Potwierdzenie Obecności - 18-stka 🎉</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      background: #0d0d0d;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+      padding: 20px;
+    }
+
+    .particles {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      animation: floatUp linear infinite;
+      opacity: 0;
+    }
+
+    @keyframes floatUp {
+      0%   { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(-10vh) rotate(720deg); opacity: 0; }
+    }
+
+    .card {
+      position: relative;
+      z-index: 10;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      border-radius: 24px;
+      padding: 50px 40px;
+      max-width: 550px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 0 60px rgba(255, 215, 0, 0.1), inset 0 0 60px rgba(255, 255, 255, 0.02);
+      animation: cardAppear 1s ease forwards;
+    }
+
+    @keyframes cardAppear {
+      from { opacity: 0; transform: scale(0.9) translateY(20px); }
+      to   { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .card::before, .card::after {
+      content: ''; position: absolute;
+      width: 40px; height: 40px;
+      border-color: gold; border-style: solid; opacity: 0.4;
+    }
+    .card::before { top: 16px; left: 16px; border-width: 2px 0 0 2px; border-radius: 8px 0 0 0; }
+    .card::after { bottom: 16px; right: 16px; border-width: 0 2px 2px 0; border-radius: 0 0 8px 0; }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    h1 span {
+      background: linear-gradient(135deg, #ffd700, #ff8c00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 30px;
+    }
+
+    form { text-align: left; }
+
+    .form-group { margin-bottom: 20px; }
+
+    .form-label {
+      display: block;
+      font-size: 0.75rem;
+      color: rgba(255,215,0,0.8);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+    }
+
+    .form-control {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 215, 0, 0.2);
+      border-radius: 10px;
+      padding: 14px 16px;
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.95rem;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    .form-control::placeholder { color: rgba(255,255,255,0.3); }
+
+    .form-control:focus {
+      border-color: #ffd700;
+      background: rgba(0, 0, 0, 0.4);
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.15);
+    }
+
+    textarea.form-control { resize: vertical; min-height: 80px; }
+
+    .radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .radio-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+      font-size: 0.95rem;
+      cursor: pointer;
+      background: rgba(255,255,255,0.03);
+      padding: 12px 16px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.05);
+      transition: all 0.2s;
+    }
+
+    .radio-label:hover {
+      background: rgba(255,215,0,0.05);
+      border-color: rgba(255,215,0,0.3);
+    }
+
+    input[type="radio"] { accent-color: #ffd700; width: 18px; height: 18px; }
+
+    .submit-btn {
+      width: 100%;
+      display: block;
+      background: linear-gradient(135deg, #ffd700, #ff8c00);
+      color: #1a1a2e;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 16px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      margin-top: 30px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 20px rgba(255,165,0,0.3);
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 30px rgba(255,165,0,0.5);
+    }
+
+    .success-message {
+      display: none;
+      text-align: center;
+      padding: 40px 0;
+      animation: fadeIn 0.5s ease forwards;
+    }
+
+    .success-icon {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 30px;
+      color: rgba(255,215,0,0.8);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.3s;
+    }
+    .back-link:hover { color: #fff; }
+  </style>
+</head>
+<body>
+
+<div class="particles" id="particles"></div>
+
+<div class="card">
+
+  <!-- ========== FORMULARZ ========== -->
+  <div id="formContainer">
+    <h1>Potwierdź <span>Obecność</span></h1>
+    <p class="subtitle">Wypełnij formularz do 8 Marca 2026</p>
+
+    <!--
+    ╔═══════════════════════════════════════════════════════════╗
+    ║  👇 TUTAJ WKLEJ SWÓJ LINK Z FORMSPREE (zamiast #)  👇  ║
+    ╚═══════════════════════════════════════════════════════════╝
+    -->
+    <form id="rsvpForm" action="https://formspree.io/f/xppzgaad" method="POST">
+
+      <div class="form-group">
+        <label class="form-label">Imię i Nazwisko</label>
+        <input type="text" name="imie" class="form-control" placeholder="Jan Kowalski" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Czy zaszczycisz mnie swoją obecnością?</label>
+        <div class="radio-group">
+          <label class="radio-label">
+            <input type="radio" name="obecnosc" value="Tak, będę!" required checked>
+            Z przyjemnością! Będę bawić się do rana 🥂
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="obecnosc" value="Nie, nie dam rady">
+            Niestety, nie dam rady 😢
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Osoba towarzysząca (opcjonalnie)</label>
+        <input type="text" name="osoba_towarzyszaca" class="form-control" placeholder="Imię i nazwisko osoby towarzyszącej">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Ulubiona piosenka dla DJ-a 🎵</label>
+        <input type="text" name="piosenka" class="form-control" placeholder="Tytuł i wykonawca">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Dieta / Alergie</label>
+        <textarea name="dieta" class="form-control" placeholder="Wpisz jeśli masz jakieś preferencje żywieniowe (np. wegetarianizm, bez glutenu)"></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">💌 Wyślij odpowiedź</button>
+    </form>
+  </div>
+
+  <!-- ========== PODZIĘKOWANIE ========== -->
+  <div id="successMessage" class="success-message">
+    <div class="success-icon">💌</div>
+    <h1><span>Dziękuję!</span></h1>
+    <p class="subtitle" style="margin-top:15px;">Twoja odpowiedź została wysłana.<br/>Do zobaczenia na imprezie! 🥳</p>
+    <a href="index.html" class="back-link">← Wróć do zaproszenia</a>
+  </div>
+
+</div>
+
+<script>
+  // Cząsteczki w tle
+  const container = document.getElementById('particles');
+  const colors = ['#ffd700','#ff8c00','#fff','#ff69b4','#00cfff'];
+  const shapes = ['✦','★','●','◆','🎉','🥂'];
+  for (let i = 0; i < 40; i++) {
+    const el = document.createElement('div');
+    el.classList.add('particle');
+    const useText = Math.random() > 0.5;
+    const size = Math.random() * 12 + 6;
+    el.style.left = Math.random() * 100 + 'vw';
+    el.style.width = size + 'px';
+    el.style.height = size + 'px';
+    el.style.animationDuration = (Math.random() * 10 + 8) + 's';
+    el.style.animationDelay = (Math.random() * 10) + 's';
+    if (useText) {
+      el.style.fontSize = (Math.random() * 14 + 10) + 'px';
+      el.style.width = 'auto'; el.style.height = 'auto';
+      el.style.background = 'none';
+      el.textContent = shapes[Math.floor(Math.random() * shapes.length)];
+    } else {
+      el.style.background = colors[Math.floor(Math.random() * colors.length)];
+      el.style.opacity = '0.5';
+    }
+    container.appendChild(el);
+  }
+
+  // Wysyłanie formularza przez AJAX (bez przeładowania strony!)
+  document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const form = this;
+    const formData = new FormData(form);
+
+    fetch(form.action, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(response => {
+      if (response.ok) {
+        // Sukces! Ukrywamy formularz i pokazujemy podziękowanie
+        document.getElementById('formContainer').style.display = 'none';
+        document.getElementById('successMessage').style.display = 'block';
+      } else {
+        alert('Coś poszło nie tak 😢 Spróbuj ponownie!');
+      }
+    })
+    .catch(error => {
+      alert('Błąd połączenia. Sprawdź internet i spróbuj ponownie.');
+    });
+  });
+</script>
+
+</body>
+</html>
