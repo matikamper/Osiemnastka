@@ -7,7 +7,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     body {
       min-height: 100vh;
       background: #0d0d0d;
@@ -18,7 +17,6 @@
       overflow-x: hidden;
       padding: 20px;
     }
-
     .particles {
       position: fixed;
       top: 0; left: 0;
@@ -26,19 +24,16 @@
       pointer-events: none;
       z-index: 0;
     }
-
     .particle {
       position: absolute;
       border-radius: 50%;
       animation: floatUp linear infinite;
       opacity: 0;
     }
-
     @keyframes floatUp {
       0%   { transform: translateY(100vh) rotate(0deg); opacity: 1; }
       100% { transform: translateY(-10vh) rotate(720deg); opacity: 0; }
     }
-
     .card {
       position: relative;
       z-index: 10;
@@ -53,12 +48,10 @@
       animation: cardAppear 1s ease forwards;
       zoom: 0.8;
     }
-
     @keyframes cardAppear {
       from { opacity: 0; transform: scale(0.9) translateY(20px); }
       to   { opacity: 1; transform: scale(1) translateY(0); }
     }
-
     .card::before, .card::after {
       content: ''; position: absolute;
       width: 40px; height: 40px;
@@ -66,30 +59,24 @@
     }
     .card::before { top: 16px; left: 16px; border-width: 2px 0 0 2px; border-radius: 8px 0 0 0; }
     .card::after { bottom: 16px; right: 16px; border-width: 0 2px 2px 0; border-radius: 0 0 8px 0; }
-
     h1 {
       font-family: 'Playfair Display', serif;
       font-size: 2.2rem;
       color: #fff;
       margin-bottom: 8px;
     }
-
     h1 span {
       background: linear-gradient(135deg, #ffd700, #ff8c00);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-
     .subtitle {
       font-size: 0.9rem;
       color: rgba(255,255,255,0.6);
       margin-bottom: 30px;
     }
-
     form { text-align: left; }
-
     .form-group { margin-bottom: 20px; }
-
     .form-label {
       display: block;
       font-size: 0.75rem;
@@ -100,7 +87,6 @@
       font-weight: 600;
       text-align: left;
     }
-
     .form-control {
       width: 100%;
       background: rgba(0, 0, 0, 0.2);
@@ -113,24 +99,19 @@
       outline: none;
       transition: all 0.3s ease;
     }
-
     .form-control::placeholder { color: rgba(255,255,255,0.3); }
-
     .form-control:focus {
       border-color: #ffd700;
       background: rgba(0, 0, 0, 0.4);
       box-shadow: 0 0 15px rgba(255, 215, 0, 0.15);
     }
-
     textarea.form-control { resize: vertical; min-height: 80px; }
-
     .radio-group {
       display: flex;
       flex-direction: column;
       gap: 12px;
       margin-top: 8px;
     }
-
     .radio-label {
       display: flex;
       align-items: center;
@@ -144,14 +125,11 @@
       border: 1px solid rgba(255,255,255,0.05);
       transition: all 0.2s;
     }
-
     .radio-label:hover {
       background: rgba(255,215,0,0.05);
       border-color: rgba(255,215,0,0.3);
     }
-
     input[type="radio"] { accent-color: #ffd700; width: 18px; height: 18px; }
-
     .submit-btn {
       width: 100%;
       display: block;
@@ -170,28 +148,23 @@
       transition: transform 0.3s, box-shadow 0.3s;
       box-shadow: 0 4px 20px rgba(255,165,0,0.3);
     }
-
     .submit-btn:hover {
       transform: translateY(-2px);
       box-shadow: 0 6px 30px rgba(255,165,0,0.5);
     }
-
     .success-message {
       display: none;
       text-align: center;
       padding: 40px 0;
       animation: fadeIn 0.5s ease forwards;
     }
-
     .success-icon {
       font-size: 4rem;
       margin-bottom: 20px;
       animation: bounce 2s infinite;
     }
-
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
-
     .back-link {
       display: inline-block;
       margin-top: 30px;
@@ -204,22 +177,17 @@
   </style>
 </head>
 <body>
-
 <div class="particles" id="particles"></div>
-
 <div class="card">
-
   <!-- ========== FORMULARZ ========== -->
   <div id="formContainer">
     <h1>Potwierdź <span>Obecność</span></h1>
-    <p class="subtitle">Mam nadzieję że sie pojawisz!</p>
+    <p class="subtitle">Mam nadzieję że się pojawisz!</p>
     <form id="rsvpForm" action="https://formspree.io/f/xppzgaad" method="POST">
-
       <div class="form-group">
         <label class="form-label">Imię i Nazwisko</label>
         <input type="text" name="imie" class="form-control" placeholder="Jan Kowalski" required>
       </div>
-
       <div class="form-group">
         <label class="form-label">Czy zaszczycisz mnie swoją obecnością?</label>
         <div class="radio-group">
@@ -233,30 +201,29 @@
           </label>
         </div>
       </div>
-
       <div class="form-group">
         <label class="form-label">Ulubiona piosenka dla DJ-a 🎵</label>
         <input type="text" name="piosenka" class="form-control" placeholder="Tytuł i wykonawca">
       </div>
       <div class="form-group">
-         <label class="radio-label">
-    <input type="radio" name="czy_pije" value="Pijący" checked>
-        Pijący 🥂
-  </label>
+        <label class="form-label">Czy pijesz?</label>
+        <div class="radio-group">
+          <label class="radio-label">
+            <input type="radio" name="czy_pije" value="Pijący" checked>
+            Pijący 🥂
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="czy_pije" value="Nie pijący">
+            Nie pijący 🚫
+          </label>
+        </div>
       </div>
-        <label class="radio-label">
-        <input type="radio" name="czy_pije" value="Nie pijący">
-        Nie pijący 🚫
-  </label>
-</div> 
       <div class="form-group">
-      <label class="form-label">Trunek do picia %%%</label>
-      <input type="text" id="trunek" name="picie" class="form-control" placeholder="Wódeczka">
-</div>
+        <label class="form-label">Trunek do picia</label>
+        <input type="text" id="trunek" name="picie" class="form-control" placeholder="Wódeczka">
+      </div>
       <button type="submit" class="submit-btn">💌 Wyślij odpowiedź</button>
     </form>
-  </div>
-
   </div>
 
   <!-- ========== PODZIĘKOWANIE ========== -->
@@ -269,7 +236,6 @@
     </p>
     <a href="index.html" class="back-link">← Wróć do zaproszenia</a>
   </div>
-
 </div>
 
 <script>
@@ -299,13 +265,11 @@
     container.appendChild(el);
   }
 
-  // Wysyłanie formularza przez AJAX (bez przeładowania strony!)
+  // Wysyłanie formularza przez AJAX
   document.getElementById('rsvpForm').addEventListener('submit', function(e) {
     e.preventDefault();
-
     const form = this;
     const formData = new FormData(form);
-
     fetch(form.action, {
       method: 'POST',
       body: formData,
@@ -313,7 +277,6 @@
     })
     .then(response => {
       if (response.ok) {
-        // Sukces! Ukrywamy formularz i pokazujemy podziękowanie
         document.getElementById('formContainer').style.display = 'none';
         document.getElementById('successMessage').style.display = 'block';
       } else {
@@ -324,22 +287,22 @@
       alert('Błąd połączenia. Sprawdź internet i spróbuj ponownie.');
     });
   });
-const trunek = document.getElementById('trunek');
-const opcjePicie = document.querySelectorAll('input[name="czy_pije"]');
 
-opcjePicie.forEach(opcja => {
-  opcja.addEventListener('change', function() {
-    if (this.value === 'Nie pijący') {
-      trunek.value = '';
-      trunek.disabled = true;
-      trunek.placeholder = 'Nie dotyczy';
-    } else {
-      trunek.disabled = false;
-      trunek.placeholder = 'Wódeczka';
-    }
+  // Wyłączanie pola trunek gdy ktoś wybierze "Nie pijący"
+  const trunek = document.getElementById('trunek');
+  const opcjePicie = document.querySelectorAll('input[name="czy_pije"]');
+  opcjePicie.forEach(opcja => {
+    opcja.addEventListener('change', function() {
+      if (this.value === 'Nie pijący') {
+        trunek.value = '';
+        trunek.disabled = true;
+        trunek.placeholder = 'Nie dotyczy';
+      } else {
+        trunek.disabled = false;
+        trunek.placeholder = 'Wódeczka';
+      }
+    });
   });
-});
 </script>
-
 </body>
 </html>
