@@ -237,16 +237,22 @@
         <label class="form-label">Ulubiona piosenka dla DJ-a 🎵</label>
         <input type="text" name="piosenka" class="form-control" placeholder="Tytuł i wykonawca">
       </div>
-      
+      <div class="form-group">
+  <label class="radio-label">
+    <input type="radio" name="czy_pije" value="Pijący" checked>
+    Pijący 🥂
+  </label>
+        
       <div class="form-group">
   <label class="form-label">Trunek do picia %%%</label>
   <input type="text" id="trunek" name="picie" class="form-control" placeholder="Wódeczka">
 </div>
 
-<label class="radio-label">
-  <input type="radio" id="niePije" name="czy_pije" value="Nie pijący">
-  Nie pijący 🚫
-</label>
+  <label class="radio-label">
+    <input type="radio" name="czy_pije" value="Nie pijący">
+    Nie pijący 🚫
+  </label>
+</div>
 
       
 
@@ -316,13 +322,20 @@
       alert('Błąd połączenia. Sprawdź internet i spróbuj ponownie.');
     });
   });
-  const trunek = document.getElementById('trunek');
-const niePije = document.getElementById('niePije');
+const trunek = document.getElementById('trunek');
+const opcjePicie = document.querySelectorAll('input[name="czy_pije"]');
 
-niePije.addEventListener('change', function() {
-  trunek.value = '';
-  trunek.disabled = true;
-  trunek.placeholder = 'Nie dotyczy';
+opcjePicie.forEach(opcja => {
+  opcja.addEventListener('change', function() {
+    if (this.value === 'Nie pijący') {
+      trunek.value = '';
+      trunek.disabled = true;
+      trunek.placeholder = 'Nie dotyczy';
+    } else {
+      trunek.disabled = false;
+      trunek.placeholder = 'Wódeczka';
+    }
+  });
 });
 </script>
 
