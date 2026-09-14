@@ -239,13 +239,14 @@
       </div>
       
       <div class="form-group">
-        <label class="form-label">Trunek do picia %%%</label>
-        <input type="text" name="picie" class="form-control" placeholder="Wódeczka">
-      </div>
-       <label class="radio-label">
-            <input type="radio" name="picie2" value="Nie pijący">
-            Nie pijący 
-          </label>
+  <label class="form-label">Trunek do picia %%%</label>
+  <input type="text" id="trunek" name="picie" class="form-control" placeholder="Wódeczka">
+</div>
+
+<label class="radio-label">
+  <input type="radio" id="niePije" name="czy_pije" value="Nie pijący">
+  Nie pijący 🚫
+</label>
 
       
 
@@ -315,6 +316,14 @@
       alert('Błąd połączenia. Sprawdź internet i spróbuj ponownie.');
     });
   });
+  const trunek = document.getElementById('trunek');
+const niePije = document.getElementById('niePije');
+
+niePije.addEventListener('change', function() {
+  trunek.value = '';
+  trunek.disabled = true;
+  trunek.placeholder = 'Nie dotyczy';
+});
 </script>
 
 </body>
