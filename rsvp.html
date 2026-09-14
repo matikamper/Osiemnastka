@@ -211,7 +211,7 @@
   <!-- ========== FORMULARZ ========== -->
   <div id="formContainer">
     <h1>Potwierdź <span>Obecność</span></h1>
-    <p class="subtitle">Wypełnij formularz do 16 Września 2026</p>
+    <p class="subtitle">Mam nadzieję że sie pojawisz!</p>
     <form id="rsvpForm" action="https://formspree.io/f/xppzgaad" method="POST">
 
       <div class="form-group">
@@ -234,19 +234,20 @@
       </div>
 
       <div class="form-group">
-        <label class="form-label">Osoba towarzysząca (opcjonalnie)</label>
-        <input type="text" name="osoba_towarzyszaca" class="form-control" placeholder="Imię i nazwisko osoby towarzyszącej">
-      </div>
-
-      <div class="form-group">
         <label class="form-label">Ulubiona piosenka dla DJ-a 🎵</label>
         <input type="text" name="piosenka" class="form-control" placeholder="Tytuł i wykonawca">
       </div>
-
+      
       <div class="form-group">
-        <label class="form-label">Dieta / Alergie</label>
-        <textarea name="dieta" class="form-control" placeholder="Wpisz jeśli masz jakieś preferencje żywieniowe (np. wegetarianizm, bez glutenu)"></textarea>
+        <label class="form-label">Trunek do picia %%%</label>
+        <input type="text" name="picie" class="form-control" placeholder="Wódeczka">
       </div>
+       <label class="radio-label">
+            <input type="radio" name="picie2" value="Nie pijący">
+            Nie pijący 
+          </label>
+
+      
 
       <button type="submit" class="submit-btn">💌 Wyślij odpowiedź</button>
     </form>
